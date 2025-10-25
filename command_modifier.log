@@ -1,0 +1,1052 @@
+2025-09-19 20:31:16,295 - DEBUG - Logging initialized
+2025-09-19 20:31:16,386 - INFO - F12 keyboard hook initialized
+2025-09-19 20:32:13,100 - DEBUG - Logging initialized
+2025-09-19 20:32:13,202 - INFO - F12 keyboard hook initialized
+2025-09-19 20:32:13,287 - DEBUG - Always on top set to: True
+2025-09-19 20:39:24,209 - DEBUG - Logging initialized
+2025-09-19 20:39:24,335 - INFO - F12 keyboard hook initialized
+2025-09-19 20:39:24,428 - DEBUG - Always on top set to: True
+2025-09-19 20:40:42,751 - DEBUG - Logging initialized
+2025-09-19 20:40:42,851 - INFO - F12 keyboard hook initialized
+2025-09-19 20:40:42,940 - DEBUG - Always on top set to: True
+2025-09-19 20:40:56,959 - DEBUG - Printed to terminal: Schematic save cancelled.
+2025-09-19 20:40:56,960 - DEBUG - Schematic save cancelled
+2025-09-19 20:41:07,178 - DEBUG - Printed to terminal: Viewing schematic: C:/Users/ryant/AppData/Roaming/ModrinthApp/profiles/Redstone Optimized/config/worldedit/schematics/temp.schem
+2025-09-19 20:44:35,263 - DEBUG - Logging initialized
+2025-09-19 20:44:35,498 - INFO - F12 keyboard hook initialized
+2025-09-19 20:44:35,573 - DEBUG - Always on top set to: True
+2025-09-19 21:06:03,039 - DEBUG - Logging initialized
+2025-09-19 21:06:03,133 - INFO - F12 keyboard hook initialized
+2025-09-19 21:06:03,201 - DEBUG - Always on top set to: True
+2025-09-19 21:07:30,782 - DEBUG - Logging initialized
+2025-09-19 21:07:30,878 - INFO - F12 keyboard hook initialized
+2025-09-19 21:07:30,950 - DEBUG - Always on top set to: True
+2025-09-19 21:09:01,861 - DEBUG - Logging initialized
+2025-09-19 21:09:01,957 - INFO - F12 keyboard hook initialized
+2025-09-19 21:09:02,026 - DEBUG - Always on top set to: True
+2025-09-20 15:09:50,218 - DEBUG - Logging initialized
+2025-09-20 15:09:50,318 - INFO - F12 keyboard hook initialized
+2025-09-20 15:09:50,391 - DEBUG - Always on top set to: True
+2025-09-20 15:34:18,285 - DEBUG - Logging initialized
+2025-09-20 15:34:18,377 - INFO - F12 keyboard hook initialized
+2025-09-20 15:34:18,442 - DEBUG - Always on top set to: True
+2025-09-20 15:34:40,840 - DEBUG - Processing clipboard for tab: generate end beam
+2025-09-20 15:34:40,841 - DEBUG - Failed to parse coordinates from content: # rename_tag_group_gui.py
+# Updated on 03:33 PM CDT, Saturday, September 20, 2025
+import tkinter as tk
+from tkinter import ttk
+
+def create_rename_tag_group_gui(frame, gui):
+    canvas = tk.Canvas(frame)
+    scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+    scrollable_frame = ttk.Frame(canvas)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+
+    canvas.grid(row=0, column=0, sticky="nsew")
+    scrollbar.grid(row=0, column=1, sticky="ns")
+
+    frame.columnconfigure(0, weight=1)
+    frame.rowconfigure(0, weight=1)
+
+    tk.Label(scrollable_frame, text="Rename Tag/Group", font=("Arial", 16, "bold"), bg='#f0f0f0', fg='#333333').grid(row=0, column=0, columnspan=3, pady=5, sticky="w")
+    tk.Label(scrollable_frame, text="New Tag:", font=("Arial", 10), bg='#f0f0f0').grid(row=1, column=0, pady=2, sticky="w")
+    tk.Entry(scrollable_frame, textvariable=gui.tag_text, width=15, bg='#ffffff', font=("Arial", 10)).grid(row=1, column=1, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Generate", command=gui.process_clipboard, font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=2, column=0, columnspan=2, pady=5, sticky="w")
+
+    gui.rename_tag_cmd_text = tk.Text(scrollable_frame, height=2, width=40)
+    gui.rename_tag_cmd_text.grid(row=3, column=0, columnspan=2, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Copy", command=lambda: gui.copy_to_clipboard(gui.rename_tag_cmd_text.get("1.0", tk.END).strip()), font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=3, column=2, pady=2, sticky="w")
+    tk.Label(scrollable_frame, text="Press set keybind to take coordinates from command and automatically update clipboard with result. Works with: summon, execute, tp.", font=("Arial", 8), bg='#f0f0f0').grid(row=4, column=0, columnspan=3, pady=2, sticky="w")
+2025-09-20 15:34:40,842 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:34:40,842 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 15:34:57,211 - DEBUG - Processing clipboard for tab: generate end beam
+2025-09-20 15:34:57,211 - DEBUG - Failed to parse coordinates from content: # rename_tag_group_gui.py
+# Updated on 03:33 PM CDT, Saturday, September 20, 2025
+import tkinter as tk
+from tkinter import ttk
+
+def create_rename_tag_group_gui(frame, gui):
+    canvas = tk.Canvas(frame)
+    scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+    scrollable_frame = ttk.Frame(canvas)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+
+    canvas.grid(row=0, column=0, sticky="nsew")
+    scrollbar.grid(row=0, column=1, sticky="ns")
+
+    frame.columnconfigure(0, weight=1)
+    frame.rowconfigure(0, weight=1)
+
+    tk.Label(scrollable_frame, text="Rename Tag/Group", font=("Arial", 16, "bold"), bg='#f0f0f0', fg='#333333').grid(row=0, column=0, columnspan=3, pady=5, sticky="w")
+    tk.Label(scrollable_frame, text="New Tag:", font=("Arial", 10), bg='#f0f0f0').grid(row=1, column=0, pady=2, sticky="w")
+    tk.Entry(scrollable_frame, textvariable=gui.tag_text, width=15, bg='#ffffff', font=("Arial", 10)).grid(row=1, column=1, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Generate", command=gui.process_clipboard, font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=2, column=0, columnspan=2, pady=5, sticky="w")
+
+    gui.rename_tag_cmd_text = tk.Text(scrollable_frame, height=2, width=40)
+    gui.rename_tag_cmd_text.grid(row=3, column=0, columnspan=2, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Copy", command=lambda: gui.copy_to_clipboard(gui.rename_tag_cmd_text.get("1.0", tk.END).strip()), font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=3, column=2, pady=2, sticky="w")
+    tk.Label(scrollable_frame, text="Press set keybind to take coordinates from command and automatically update clipboard with result. Works with: summon, execute, tp.", font=("Arial", 8), bg='#f0f0f0').grid(row=4, column=0, columnspan=3, pady=2, sticky="w")
+2025-09-20 15:34:57,212 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:34:57,212 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 15:34:59,257 - DEBUG - Processing clipboard for tab: generate end beam
+2025-09-20 15:34:59,257 - DEBUG - Failed to parse coordinates from content: # rename_tag_group_gui.py
+# Updated on 03:33 PM CDT, Saturday, September 20, 2025
+import tkinter as tk
+from tkinter import ttk
+
+def create_rename_tag_group_gui(frame, gui):
+    canvas = tk.Canvas(frame)
+    scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+    scrollable_frame = ttk.Frame(canvas)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+
+    canvas.grid(row=0, column=0, sticky="nsew")
+    scrollbar.grid(row=0, column=1, sticky="ns")
+
+    frame.columnconfigure(0, weight=1)
+    frame.rowconfigure(0, weight=1)
+
+    tk.Label(scrollable_frame, text="Rename Tag/Group", font=("Arial", 16, "bold"), bg='#f0f0f0', fg='#333333').grid(row=0, column=0, columnspan=3, pady=5, sticky="w")
+    tk.Label(scrollable_frame, text="New Tag:", font=("Arial", 10), bg='#f0f0f0').grid(row=1, column=0, pady=2, sticky="w")
+    tk.Entry(scrollable_frame, textvariable=gui.tag_text, width=15, bg='#ffffff', font=("Arial", 10)).grid(row=1, column=1, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Generate", command=gui.process_clipboard, font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=2, column=0, columnspan=2, pady=5, sticky="w")
+
+    gui.rename_tag_cmd_text = tk.Text(scrollable_frame, height=2, width=40)
+    gui.rename_tag_cmd_text.grid(row=3, column=0, columnspan=2, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Copy", command=lambda: gui.copy_to_clipboard(gui.rename_tag_cmd_text.get("1.0", tk.END).strip()), font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=3, column=2, pady=2, sticky="w")
+    tk.Label(scrollable_frame, text="Press set keybind to take coordinates from command and automatically update clipboard with result. Works with: summon, execute, tp.", font=("Arial", 8), bg='#f0f0f0').grid(row=4, column=0, columnspan=3, pady=2, sticky="w")
+2025-09-20 15:34:59,258 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:34:59,258 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 15:35:25,919 - DEBUG - Failed to parse coordinates from content: # rename_tag_group_gui.py
+# Updated on 03:33 PM CDT, Saturday, September 20, 2025
+import tkinter as tk
+from tkinter import ttk
+
+def create_rename_tag_group_gui(frame, gui):
+    canvas = tk.Canvas(frame)
+    scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+    scrollable_frame = ttk.Frame(canvas)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1*(e.delta/120)), "units"))
+
+    canvas.grid(row=0, column=0, sticky="nsew")
+    scrollbar.grid(row=0, column=1, sticky="ns")
+
+    frame.columnconfigure(0, weight=1)
+    frame.rowconfigure(0, weight=1)
+
+    tk.Label(scrollable_frame, text="Rename Tag/Group", font=("Arial", 16, "bold"), bg='#f0f0f0', fg='#333333').grid(row=0, column=0, columnspan=3, pady=5, sticky="w")
+    tk.Label(scrollable_frame, text="New Tag:", font=("Arial", 10), bg='#f0f0f0').grid(row=1, column=0, pady=2, sticky="w")
+    tk.Entry(scrollable_frame, textvariable=gui.tag_text, width=15, bg='#ffffff', font=("Arial", 10)).grid(row=1, column=1, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Generate", command=gui.process_clipboard, font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=2, column=0, columnspan=2, pady=5, sticky="w")
+
+    gui.rename_tag_cmd_text = tk.Text(scrollable_frame, height=2, width=40)
+    gui.rename_tag_cmd_text.grid(row=3, column=0, columnspan=2, pady=2, sticky="w")
+    tk.Button(scrollable_frame, text="Copy", command=lambda: gui.copy_to_clipboard(gui.rename_tag_cmd_text.get("1.0", tk.END).strip()), font=("Arial", 10), bg='#4CAF50', fg='#ffffff').grid(row=3, column=2, pady=2, sticky="w")
+    tk.Label(scrollable_frame, text="Press set keybind to take coordinates from command and automatically update clipboard with result. Works with: summon, execute, tp.", font=("Arial", 8), bg='#f0f0f0').grid(row=4, column=0, columnspan=3, pady=2, sticky="w")
+2025-09-20 15:35:25,919 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:35:25,920 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 15:35:36,704 - DEBUG - Logging initialized
+2025-09-20 15:35:36,794 - INFO - F12 keyboard hook initialized
+2025-09-20 15:35:36,858 - DEBUG - Always on top set to: True
+2025-09-20 15:38:15,991 - DEBUG - Logging initialized
+2025-09-20 15:38:16,092 - INFO - F12 keyboard hook initialized
+2025-09-20 15:38:35,724 - DEBUG - Logging initialized
+2025-09-20 15:38:35,816 - INFO - F12 keyboard hook initialized
+2025-09-20 15:38:42,922 - DEBUG - Logging initialized
+2025-09-20 15:38:43,015 - INFO - F12 keyboard hook initialized
+2025-09-20 15:38:43,083 - DEBUG - Always on top set to: True
+2025-09-20 15:42:36,620 - DEBUG - Always on top set to: False
+2025-09-20 15:43:24,812 - DEBUG - Failed to parse coordinates from content: /setblock 1 38 -3 minecraft:grass_block
+2025-09-20 15:43:24,814 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:43:24,815 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 15:43:56,136 - DEBUG - Failed to parse coordinates from content: /setblock 1 38 -3 minecraft:grass_block
+2025-09-20 15:43:56,156 - WARNING - No valid coordinates found in clipboard
+2025-09-20 15:43:56,173 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:07:54,505 - DEBUG - Logging initialized
+2025-09-20 16:07:54,703 - INFO - F12 keyboard hook initialized
+2025-09-20 16:07:54,793 - DEBUG - Always on top set to: True
+2025-09-20 16:09:10,907 - DEBUG - Logging initialized
+2025-09-20 16:09:11,011 - INFO - F12 keyboard hook initialized
+2025-09-20 16:09:11,091 - DEBUG - Always on top set to: True
+2025-09-20 16:09:43,053 - DEBUG - Autofilled coordinates: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:09:43,053 - DEBUG - Printed to terminal: Autofilled coordinates from clipboard: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:11:16,567 - DEBUG - Autofilled fractional coordinates: ['0.0', '0.5', '-9.999999974752427e-07']
+2025-09-20 16:11:16,568 - DEBUG - Printed to terminal: Autofilled fractional coordinates from clipboard: ['0.0', '0.5', '-9.999999974752427e-07']
+2025-09-20 16:11:18,088 - DEBUG - Autofilled integer coordinates: ['66', '103', '-92']
+2025-09-20 16:11:18,089 - DEBUG - Printed to terminal: Autofilled integer coordinates from clipboard: ['66', '103', '-92']
+2025-09-20 16:11:18,606 - DEBUG - Autofilled coordinates: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:11:18,606 - DEBUG - Printed to terminal: Autofilled coordinates from clipboard: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:11:19,141 - DEBUG - Autofilled integer coordinates: ['66', '103', '-92']
+2025-09-20 16:11:19,141 - DEBUG - Printed to terminal: Autofilled integer coordinates from clipboard: ['66', '103', '-92']
+2025-09-20 16:11:19,567 - DEBUG - Autofilled fractional coordinates: ['0.0', '0.5', '-9.999999974752427e-07']
+2025-09-20 16:11:19,568 - DEBUG - Printed to terminal: Autofilled fractional coordinates from clipboard: ['0.0', '0.5', '-9.999999974752427e-07']
+2025-09-20 16:11:21,375 - DEBUG - Autofilled coordinates: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:11:21,375 - DEBUG - Printed to terminal: Autofilled coordinates from clipboard: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:15:48,163 - DEBUG - Logging initialized
+2025-09-20 16:15:48,259 - INFO - F12 keyboard hook initialized
+2025-09-20 16:15:48,328 - DEBUG - Always on top set to: True
+2025-09-20 16:16:04,711 - DEBUG - Autofilled coordinates: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:16:04,712 - DEBUG - Printed to terminal: Autofilled coordinates from clipboard: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:16:08,722 - DEBUG - Processing command in Set Coordinates tab: /summon minecraft:block_display 66.000000 103.500000 -92.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-20 16:16:08,723 - DEBUG - Modifying coordinates for command: /summon minecraft:block_display 66.000000 103.500000 -92.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-20 16:16:08,724 - DEBUG - Printed to terminal: Original Position: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:16:08,724 - DEBUG - Printed to terminal: New Position: ['66.000000', '103.500000', '-92.000001']
+2025-09-20 16:16:08,748 - DEBUG - Printed to terminal: Modified command copied to clipboard.
+2025-09-20 16:16:54,109 - DEBUG - Failed to parse coordinates from content: summon end_crystal 60 118 34 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-10,Y:165,Z:-92}}
+2025-09-20 16:16:54,110 - WARNING - No valid coordinates found in clipboard
+2025-09-20 16:16:54,110 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:16:55,292 - DEBUG - Failed to parse coordinates from content: summon end_crystal 60 118 34 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-10,Y:165,Z:-92}}
+2025-09-20 16:16:55,292 - WARNING - No valid coordinates found in clipboard
+2025-09-20 16:16:55,292 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:16:56,199 - DEBUG - Failed to parse coordinates from content: summon end_crystal 60 118 34 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-10,Y:165,Z:-92}}
+2025-09-20 16:16:56,200 - WARNING - No valid coordinates found in clipboard
+2025-09-20 16:16:56,200 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:16:57,737 - DEBUG - Failed to parse coordinates from content: summon end_crystal 60 118 34 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-10,Y:165,Z:-92}}
+2025-09-20 16:16:57,737 - WARNING - No valid coordinates found in clipboard
+2025-09-20 16:16:57,738 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:16:58,590 - DEBUG - Failed to parse coordinates from content: summon end_crystal 60 118 34 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-10,Y:165,Z:-92}}
+2025-09-20 16:16:58,591 - WARNING - No valid coordinates found in clipboard
+2025-09-20 16:16:58,591 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-20 16:22:07,665 - DEBUG - Logging initialized
+2025-09-20 16:22:07,761 - INFO - F12 keyboard hook initialized
+2025-09-20 16:22:07,833 - DEBUG - Always on top set to: True
+2025-09-20 16:23:03,259 - DEBUG - Logging initialized
+2025-09-20 16:23:03,358 - INFO - F12 keyboard hook initialized
+2025-09-20 16:23:03,431 - DEBUG - Always on top set to: True
+2025-09-20 16:23:19,422 - DEBUG - Logging initialized
+2025-09-20 16:23:19,516 - INFO - F12 keyboard hook initialized
+2025-09-20 16:23:19,586 - DEBUG - Always on top set to: True
+2025-09-20 16:23:45,212 - DEBUG - Processing command in Set Coordinates tab: setblock 24 110 34 minecraft:black_concrete
+2025-09-20 16:23:45,212 - DEBUG - Modifying coordinates for command: setblock 24 110 34 minecraft:black_concrete
+2025-09-20 16:23:45,213 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:45,213 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:45,214 - DEBUG - Printed to terminal: Original Position: ['24', '110', '34']
+2025-09-20 16:23:45,215 - DEBUG - Printed to terminal: New Position: ['0.000000', '0.000000', '0.000000']
+2025-09-20 16:23:45,218 - DEBUG - Printed to terminal: Modified command copied to clipboard.
+2025-09-20 16:23:54,062 - DEBUG - Processing command in Set Coordinates tab: 
+2025-09-20 16:23:54,062 - DEBUG - Modifying coordinates for command: 
+2025-09-20 16:23:54,062 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:54,063 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:54,063 - DEBUG - No supported command found for modification
+2025-09-20 16:23:54,064 - DEBUG - Printed to terminal: Warning: No supported command found with coordinates to set.
+2025-09-20 16:23:57,503 - DEBUG - Processing command in Set Coordinates tab: /setblock 0.000000 0.000000 0.000000 minecraft:black_concrete
+2025-09-20 16:23:57,503 - DEBUG - Modifying coordinates for command: /setblock 0.000000 0.000000 0.000000 minecraft:black_concrete
+2025-09-20 16:23:57,504 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:57,504 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:23:57,504 - DEBUG - Printed to terminal: Original Position: ['0.000000', '0.000000', '0.000000']
+2025-09-20 16:23:57,504 - DEBUG - Printed to terminal: New Position: ['0.000000', '0.000000', '0.000000']
+2025-09-20 16:23:57,508 - DEBUG - Printed to terminal: Modified command copied to clipboard.
+2025-09-20 16:24:11,594 - DEBUG - Processing command in Set Coordinates tab: /setblock 0.000000 0.000000 0.000000 minecraft:black_concrete
+2025-09-20 16:24:11,594 - DEBUG - Modifying coordinates for command: /setblock 0.000000 0.000000 0.000000 minecraft:black_concrete
+2025-09-20 16:24:11,594 - WARNING - Invalid set values entered, using 0.0
+2025-09-20 16:24:11,596 - DEBUG - Printed to terminal: Original Position: ['0.000000', '0.000000', '0.000000']
+2025-09-20 16:24:11,596 - DEBUG - Printed to terminal: New Position: ['1.000000', '1.000000', '1.000000']
+2025-09-20 16:24:11,599 - DEBUG - Printed to terminal: Modified command copied to clipboard.
+2025-09-21 15:10:17,001 - DEBUG - Logging initialized
+2025-09-21 15:10:17,100 - INFO - F12 keyboard hook initialized
+2025-09-21 15:10:17,172 - DEBUG - Always on top set to: True
+2025-09-21 15:22:36,071 - DEBUG - Always on top set to: False
+2025-09-21 15:23:54,713 - DEBUG - Always on top set to: True
+2025-09-21 15:29:43,848 - DEBUG - Logging initialized
+2025-09-21 15:29:43,963 - INFO - F12 keyboard hook initialized
+2025-09-21 15:29:44,045 - DEBUG - Always on top set to: True
+2025-09-21 15:39:52,210 - DEBUG - Logging initialized
+2025-09-21 15:39:52,323 - INFO - F12 keyboard hook initialized
+2025-09-21 15:39:52,399 - DEBUG - Always on top set to: True
+2025-09-21 15:40:11,082 - DEBUG - Processing clipboard for tab: generate end beam
+2025-09-21 15:40:11,085 - DEBUG - Failed to parse coordinates from content: from rename_tag_group_tab.rename_tag_group_gui import create_rename_tag_group_gui
+2025-09-21 15:40:11,085 - WARNING - No valid coordinates found in clipboard
+2025-09-21 15:40:11,086 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-21 15:53:48,541 - DEBUG - Logging initialized
+2025-09-21 15:53:48,644 - INFO - F12 keyboard hook initialized
+2025-09-21 15:55:04,703 - DEBUG - Logging initialized
+2025-09-21 15:55:04,807 - INFO - F12 keyboard hook initialized
+2025-09-21 15:56:26,236 - DEBUG - Logging initialized
+2025-09-21 15:56:26,356 - INFO - F12 keyboard hook initialized
+2025-09-21 15:56:26,434 - DEBUG - Always on top set to: True
+2025-09-21 15:56:31,453 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 15:56:31,454 - DEBUG - Printed to terminal: Generated End Beam Command:
+summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-09-21 15:56:45,254 - DEBUG - Processing clipboard for tab: generate laser
+2025-09-21 15:56:45,257 - DEBUG - Failed to parse coordinates from content: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-09-21 15:56:45,258 - WARNING - No valid coordinates found in clipboard
+2025-09-21 15:56:45,258 - DEBUG - Printed to terminal: Error: No valid coordinates found in clipboard.
+2025-09-21 16:03:02,245 - DEBUG - Logging initialized
+2025-09-21 16:03:02,360 - INFO - F12 keyboard hook initialized
+2025-09-21 16:03:02,437 - DEBUG - Always on top set to: True
+2025-09-21 16:03:07,305 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:03:07,307 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-21 16:05:21,834 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:05:21,836 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 1.000000 2.500000 2.999999 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-21 16:05:59,922 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:05:59,923 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 66.000000 103.500000 -92.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-21 16:06:02,977 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:06:08,713 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:06:08,714 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 66.000000 103.500000 91.999999 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-21 16:06:12,984 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:06:12,986 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 66.000000 103.500000 -92.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-09-21 16:06:14,740 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:08:05,198 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-09-21 16:08:05,199 - DEBUG - Printed to terminal: Generated End Beam Command:
+summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-03 11:16:54,813 - DEBUG - Logging initialized
+2025-10-03 11:16:55,021 - INFO - F12 keyboard hook initialized
+2025-10-03 11:16:55,200 - DEBUG - Always on top set to: True
+2025-10-03 11:31:30,267 - DEBUG - Logging initialized
+2025-10-03 11:31:30,387 - INFO - F12 keyboard hook initialized
+2025-10-03 11:31:30,474 - DEBUG - Always on top set to: True
+2025-10-03 11:31:42,824 - DEBUG - Set laser preset values
+2025-10-03 11:31:42,825 - DEBUG - Printed to terminal: Applied Laser preset
+2025-10-03 11:31:52,775 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:31:52,776 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:31:54,641 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:32:37,496 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:32:37,498 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 105.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:32:38,207 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:36:38,488 - DEBUG - Logging initialized
+2025-10-03 11:36:38,587 - INFO - F12 keyboard hook initialized
+2025-10-03 11:40:13,490 - DEBUG - Logging initialized
+2025-10-03 11:40:13,572 - INFO - F12 keyboard hook initialized
+2025-10-03 11:40:13,637 - DEBUG - Always on top set to: True
+2025-10-03 11:40:26,955 - DEBUG - Printed to terminal: Kill command copied to clipboard.
+2025-10-03 11:40:26,955 - DEBUG - Printed to terminal: Generated Kill Command:
+/kill @e[tag=beam1]
+2025-10-03 11:40:27,696 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:40:27,697 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:40:40,690 - DEBUG - Printed to terminal: Kill command copied to clipboard.
+2025-10-03 11:40:40,691 - DEBUG - Printed to terminal: Generated Kill Command:
+/kill @e[tag=beam1]
+2025-10-03 11:40:41,585 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:40:41,586 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:40:42,109 - DEBUG - Printed to terminal: Kill command copied to clipboard.
+2025-10-03 11:40:42,110 - DEBUG - Printed to terminal: Generated Kill Command:
+/kill @e[tag=beam1]
+2025-10-03 11:40:42,557 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:40:42,558 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:40:42,907 - DEBUG - Printed to terminal: Kill command copied to clipboard.
+2025-10-03 11:40:42,908 - DEBUG - Printed to terminal: Generated Kill Command:
+/kill @e[tag=beam1]
+2025-10-03 11:40:43,366 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:40:43,368 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:40:44,734 - DEBUG - Printed to terminal: Kill command copied to clipboard.
+2025-10-03 11:40:44,735 - DEBUG - Printed to terminal: Generated Kill Command:
+/kill @e[tag=beam1]
+2025-10-03 11:40:45,654 - DEBUG - Printed to terminal: Command copied to clipboard.
+2025-10-03 11:40:45,655 - DEBUG - Printed to terminal: Generated Laser Command:
+/summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:40:56,915 - DEBUG - Terminal visibility set to: False
+2025-10-03 11:42:43,694 - DEBUG - Logging initialized
+2025-10-03 11:42:43,799 - INFO - F12 keyboard hook initialized
+2025-10-03 11:42:43,867 - DEBUG - Always on top set to: True
+2025-10-03 11:42:53,459 - DEBUG - Command copied to clipboard.
+2025-10-03 11:42:53,459 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:42:56,762 - DEBUG - Kill command copied to clipboard.
+2025-10-03 11:42:56,764 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-03 11:42:57,807 - DEBUG - Command copied to clipboard.
+2025-10-03 11:42:57,807 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:42:58,770 - DEBUG - Kill command copied to clipboard.
+2025-10-03 11:42:58,770 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-03 11:42:59,969 - DEBUG - Command copied to clipboard.
+2025-10-03 11:42:59,970 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:44:06,070 - DEBUG - Logging initialized
+2025-10-03 11:44:06,176 - INFO - F12 keyboard hook initialized
+2025-10-03 11:44:06,243 - DEBUG - Always on top set to: True
+2025-10-03 11:44:15,593 - DEBUG - Command copied to clipboard.
+2025-10-03 11:44:15,593 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 105.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:44:16,244 - DEBUG - Kill command copied to clipboard.
+2025-10-03 11:44:16,245 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-03 11:44:17,170 - DEBUG - Command copied to clipboard.
+2025-10-03 11:47:40,659 - DEBUG - Logging initialized
+2025-10-03 11:47:40,768 - INFO - F12 keyboard hook initialized
+2025-10-03 11:47:40,837 - DEBUG - Always on top set to: True
+2025-10-03 11:47:45,688 - WARNING - Invalid clipboard format for coordinates
+2025-10-03 11:47:58,721 - DEBUG - Autofilled coordinates from clipboard: -2.0, 101.0, 4.0
+2025-10-03 11:48:03,536 - DEBUG - Command copied to clipboard.
+2025-10-03 11:48:03,537 - DEBUG - Generated Laser Command: /summon minecraft:block_display -2.000000 101.500000 3.999999 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:48:05,341 - DEBUG - Command copied to clipboard.
+2025-10-03 11:48:17,669 - DEBUG - Kill command copied to clipboard.
+2025-10-03 11:48:17,670 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-03 11:51:56,501 - DEBUG - Failed to parse coordinates from content: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-03 11:51:56,501 - WARNING - No valid coordinates found in clipboard
+2025-10-03 11:51:56,501 - ERROR - Error autofilling integer coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:52:44,693 - DEBUG - Logging initialized
+2025-10-03 11:52:44,790 - INFO - F12 keyboard hook initialized
+2025-10-03 11:52:44,850 - DEBUG - Always on top set to: True
+2025-10-03 11:52:47,578 - DEBUG - Command copied to clipboard.
+2025-10-03 11:52:47,578 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:52:50,013 - DEBUG - Command copied to clipboard.
+2025-10-03 11:53:09,760 - DEBUG - Command copied to clipboard.
+2025-10-03 11:53:13,236 - DEBUG - Failed to parse coordinates from content: 
+2025-10-03 11:53:13,237 - WARNING - No valid coordinates found in clipboard
+2025-10-03 11:53:13,237 - ERROR - Error autofilling integer coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:53:17,591 - DEBUG - Command copied to clipboard.
+2025-10-03 11:53:29,234 - DEBUG - Processing command in Set Coordinates tab: 
+2025-10-03 11:53:29,235 - DEBUG - Modifying coordinates for command: 
+2025-10-03 11:53:29,236 - DEBUG - No supported command found for modification
+2025-10-03 11:53:35,577 - DEBUG - Command copied to clipboard.
+2025-10-03 11:53:44,485 - DEBUG - Set laser preset values
+2025-10-03 11:53:45,481 - DEBUG - Set lightbeam preset values
+2025-10-03 11:53:46,222 - DEBUG - Set laser preset values
+2025-10-03 11:53:47,026 - DEBUG - Set lightbeam preset values
+2025-10-03 11:53:47,540 - DEBUG - Set laser preset values
+2025-10-03 11:53:48,481 - DEBUG - Set lightbeam preset values
+2025-10-03 11:53:49,530 - DEBUG - Set laser preset values
+2025-10-03 11:53:50,734 - DEBUG - Set lightbeam preset values
+2025-10-03 11:53:52,147 - DEBUG - Set laser preset values
+2025-10-03 11:53:53,069 - DEBUG - Set lightbeam preset values
+2025-10-03 11:53:54,472 - DEBUG - Set laser preset values
+2025-10-03 11:53:56,428 - DEBUG - Autofilled coordinates: ['0.000000', '0.500000', '-0.000001']
+2025-10-03 11:53:56,429 - ERROR - Error autofilling coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:53:58,839 - DEBUG - Set laser preset values
+2025-10-03 11:53:59,831 - DEBUG - Autofilled coordinates: ['0.000000', '0.500000', '-0.000001']
+2025-10-03 11:53:59,832 - ERROR - Error autofilling coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:54:00,602 - DEBUG - Set laser preset values
+2025-10-03 11:54:01,341 - DEBUG - Autofilled coordinates: ['0.000000', '0.500000', '-0.000001']
+2025-10-03 11:54:01,341 - ERROR - Error autofilling coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:54:03,154 - DEBUG - Autofilled coordinates: ['0.000000', '0.500000', '-0.000001']
+2025-10-03 11:54:03,154 - ERROR - Error autofilling coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:54:19,142 - DEBUG - Command copied to clipboard.
+2025-10-03 11:54:24,097 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 11:54:24,098 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:54:24,098 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["test"]}
+2025-10-03 11:54:24,101 - ERROR - Error processing rename tag command: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:54:24,102 - ERROR - Error processing clipboard: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:56:19,310 - DEBUG - Logging initialized
+2025-10-03 11:56:19,405 - INFO - F12 keyboard hook initialized
+2025-10-03 11:56:19,467 - DEBUG - Always on top set to: True
+2025-10-03 11:56:26,993 - DEBUG - Command copied to clipboard.
+2025-10-03 11:56:26,993 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:56:39,142 - DEBUG - Kill command copied to clipboard.
+2025-10-03 11:56:39,143 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-03 11:56:39,777 - DEBUG - Command copied to clipboard.
+2025-10-03 11:56:39,778 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:56:47,830 - DEBUG - Command copied to clipboard.
+2025-10-03 11:56:59,185 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 11:56:59,185 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:56:59,186 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["test"]}
+2025-10-03 11:56:59,188 - ERROR - Error processing rename tag command: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:56:59,188 - ERROR - Error processing clipboard: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 11:58:49,372 - DEBUG - Logging initialized
+2025-10-03 11:58:49,470 - INFO - F12 keyboard hook initialized
+2025-10-03 11:58:49,536 - DEBUG - Always on top set to: True
+2025-10-03 11:58:54,137 - DEBUG - Command copied to clipboard.
+2025-10-03 11:58:54,137 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 11:58:55,794 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:24,003 - DEBUG - Logging initialized
+2025-10-03 12:03:24,120 - INFO - F12 keyboard hook initialized
+2025-10-03 12:03:24,190 - DEBUG - Always on top set to: True
+2025-10-03 12:03:26,464 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:26,465 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:03:27,274 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:32,722 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:03:32,723 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:03:32,723 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:03:32,726 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:32,727 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:03:36,355 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:03:36,356 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:03:36,356 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam2"]}
+2025-10-03 12:03:36,358 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:36,359 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam2"]}
+2025-10-03 12:03:41,537 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:44,465 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:03:44,467 - DEBUG - Processing command in Rename Tag/Group tab: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-03 12:03:44,467 - DEBUG - Modified Tags in summon command: /summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["beam2"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-03 12:03:44,469 - DEBUG - Command copied to clipboard.
+2025-10-03 12:03:44,470 - DEBUG - Modified Command: /summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["beam2"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-03 12:03:50,987 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:17,071 - DEBUG - Logging initialized
+2025-10-03 12:05:17,165 - INFO - F12 keyboard hook initialized
+2025-10-03 12:05:17,229 - DEBUG - Always on top set to: True
+2025-10-03 12:05:21,294 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:05:21,296 - DEBUG - Processing command in Rename Tag/Group tab: import logging
+import re
+import tkinter as tk
+import pyperclip
+
+def process_command(gui, command):
+    logging.debug(f"Processing command in Rename Tag/Group tab: {command}")
+    try:
+        # Get new tag from GUI, default to "beam1" if empty
+        new_tag = gui.tag_text.get().strip() if gui.tag_text.get().strip() else "beam1"
+        modified_command = command
+
+        # Normalize command by adding leading '/' if missing
+        if not command.startswith('/'):
+            modified_command = '/' + command.strip()
+
+        # Check if command is empty or just '/'
+        if not modified_command.strip() or modified_command == '/':
+            logging.warning("No command provided to rename tag")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Error: No command provided to rename tag.")
+            return command
+
+        # Extract original tag for logging
+        original_tag = None
+        if 'Tags:' in modified_command:
+            match = re.search(r'Tags:\s*\["([^"]*)"\]', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+        elif 'tag=' in modified_command:
+            match = re.search(r'tag=([^,\s\]]+)', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+
+        # Handle /summon commands with Tags
+        if 'Tags:' in modified_command:
+            modified_command = re.sub(
+                r'Tags:\s*\["([^"]*)"\]',
+                f'Tags:["{new_tag}"]',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified Tags in summon command: {modified_command}")
+        # Handle /execute, /tp, or /kill commands with tag=
+        elif 'tag=' in modified_command:
+            modified_command = re.sub(
+                r'tag=([^,\s\]]+)',
+                f'tag={new_tag}',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified tag in execute/tp/kill command: {modified_command}")
+        else:
+            logging.warning("No tag found in command")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Warning: No tag found in command.")
+            return command
+
+        # Update the GUI text widget with only the modified command
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", modified_command)
+        else:
+            logging.warning("rename_tag_cmd_text not found or not initialized")
+
+        # Copy modified command to clipboard
+        pyperclip.copy(modified_command.encode('utf-8').decode('utf-8'))
+        logging.debug("Command copied to clipboard.")
+
+        # Log original and new tags for debugging
+        if original_tag:
+            logging.debug(f"Original Tag: {original_tag}")
+            logging.debug(f"New Tag: {new_tag}")
+        logging.debug(f"Modified Command: {modified_command}")
+
+        return modified_command
+    except Exception as e:
+        logging.error(f"Error processing rename tag command: {e}")
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", f"Error: {e}")
+        return command
+2025-10-03 12:05:21,297 - DEBUG - Modified Tags in summon command: /import logging
+import re
+import tkinter as tk
+import pyperclip
+
+def process_command(gui, command):
+    logging.debug(f"Processing command in Rename Tag/Group tab: {command}")
+    try:
+        # Get new tag from GUI, default to "beam1" if empty
+        new_tag = gui.tag_text.get().strip() if gui.tag_text.get().strip() else "beam1"
+        modified_command = command
+
+        # Normalize command by adding leading '/' if missing
+        if not command.startswith('/'):
+            modified_command = '/' + command.strip()
+
+        # Check if command is empty or just '/'
+        if not modified_command.strip() or modified_command == '/':
+            logging.warning("No command provided to rename tag")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Error: No command provided to rename tag.")
+            return command
+
+        # Extract original tag for logging
+        original_tag = None
+        if 'Tags:' in modified_command:
+            match = re.search(r'Tags:\s*\["([^"]*)"\]', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+        elif 'tag=' in modified_command:
+            match = re.search(r'tag=([^,\s\]]+)', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+
+        # Handle /summon commands with Tags
+        if 'Tags:' in modified_command:
+            modified_command = re.sub(
+                r'Tags:\s*\["([^"]*)"\]',
+                f'Tags:["beam1"]',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified Tags in summon command: {modified_command}")
+        # Handle /execute, /tp, or /kill commands with tag=
+        elif 'tag=' in modified_command:
+            modified_command = re.sub(
+                r'tag=([^,\s\]]+)',
+                f'tag={new_tag}',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified tag in execute/tp/kill command: {modified_command}")
+        else:
+            logging.warning("No tag found in command")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Warning: No tag found in command.")
+            return command
+
+        # Update the GUI text widget with only the modified command
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", modified_command)
+        else:
+            logging.warning("rename_tag_cmd_text not found or not initialized")
+
+        # Copy modified command to clipboard
+        pyperclip.copy(modified_command.encode('utf-8').decode('utf-8'))
+        logging.debug("Command copied to clipboard.")
+
+        # Log original and new tags for debugging
+        if original_tag:
+            logging.debug(f"Original Tag: {original_tag}")
+            logging.debug(f"New Tag: {new_tag}")
+        logging.debug(f"Modified Command: {modified_command}")
+
+        return modified_command
+    except Exception as e:
+        logging.error(f"Error processing rename tag command: {e}")
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", f"Error: {e}")
+        return command
+2025-10-03 12:05:21,300 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:21,301 - DEBUG - Original Tag: {new_tag}
+2025-10-03 12:05:21,301 - DEBUG - New Tag: beam1
+2025-10-03 12:05:21,301 - DEBUG - Modified Command: /import logging
+import re
+import tkinter as tk
+import pyperclip
+
+def process_command(gui, command):
+    logging.debug(f"Processing command in Rename Tag/Group tab: {command}")
+    try:
+        # Get new tag from GUI, default to "beam1" if empty
+        new_tag = gui.tag_text.get().strip() if gui.tag_text.get().strip() else "beam1"
+        modified_command = command
+
+        # Normalize command by adding leading '/' if missing
+        if not command.startswith('/'):
+            modified_command = '/' + command.strip()
+
+        # Check if command is empty or just '/'
+        if not modified_command.strip() or modified_command == '/':
+            logging.warning("No command provided to rename tag")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Error: No command provided to rename tag.")
+            return command
+
+        # Extract original tag for logging
+        original_tag = None
+        if 'Tags:' in modified_command:
+            match = re.search(r'Tags:\s*\["([^"]*)"\]', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+        elif 'tag=' in modified_command:
+            match = re.search(r'tag=([^,\s\]]+)', modified_command, flags=re.DOTALL)
+            if match:
+                original_tag = match.group(1)
+
+        # Handle /summon commands with Tags
+        if 'Tags:' in modified_command:
+            modified_command = re.sub(
+                r'Tags:\s*\["([^"]*)"\]',
+                f'Tags:["beam1"]',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified Tags in summon command: {modified_command}")
+        # Handle /execute, /tp, or /kill commands with tag=
+        elif 'tag=' in modified_command:
+            modified_command = re.sub(
+                r'tag=([^,\s\]]+)',
+                f'tag={new_tag}',
+                modified_command,
+                flags=re.DOTALL
+            )
+            logging.debug(f"Modified tag in execute/tp/kill command: {modified_command}")
+        else:
+            logging.warning("No tag found in command")
+            if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+                gui.rename_tag_cmd_text.delete("1.0", tk.END)
+                gui.rename_tag_cmd_text.insert("1.0", "Warning: No tag found in command.")
+            return command
+
+        # Update the GUI text widget with only the modified command
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", modified_command)
+        else:
+            logging.warning("rename_tag_cmd_text not found or not initialized")
+
+        # Copy modified command to clipboard
+        pyperclip.copy(modified_command.encode('utf-8').decode('utf-8'))
+        logging.debug("Command copied to clipboard.")
+
+        # Log original and new tags for debugging
+        if original_tag:
+            logging.debug(f"Original Tag: {original_tag}")
+            logging.debug(f"New Tag: {new_tag}")
+        logging.debug(f"Modified Command: {modified_command}")
+
+        return modified_command
+    except Exception as e:
+        logging.error(f"Error processing rename tag command: {e}")
+        if hasattr(gui, 'rename_tag_cmd_text') and gui.rename_tag_cmd_text.winfo_exists():
+            gui.rename_tag_cmd_text.delete("1.0", tk.END)
+            gui.rename_tag_cmd_text.insert("1.0", f"Error: {e}")
+        return command
+2025-10-03 12:05:26,360 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:26,361 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:05:27,210 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:29,432 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:05:29,433 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:05:29,433 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:05:29,436 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:29,436 - DEBUG - Original Tag: beam1
+2025-10-03 12:05:29,437 - DEBUG - New Tag: beam1
+2025-10-03 12:05:29,437 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:05:34,653 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:05:34,654 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:05:34,654 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["test"]}
+2025-10-03 12:05:34,656 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:34,657 - DEBUG - Original Tag: beam1
+2025-10-03 12:05:34,657 - DEBUG - New Tag: test
+2025-10-03 12:05:34,657 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["test"]}
+2025-10-03 12:05:35,669 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:39,472 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:05:39,473 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["test"]}
+2025-10-03 12:05:39,473 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["pl"]}
+2025-10-03 12:05:39,475 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:39,476 - DEBUG - Original Tag: test
+2025-10-03 12:05:39,476 - DEBUG - New Tag: pl
+2025-10-03 12:05:39,476 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["pl"]}
+2025-10-03 12:05:40,768 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:44,277 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-03 12:05:44,278 - DEBUG - Processing command in Rename Tag/Group tab: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["pl"]}
+2025-10-03 12:05:44,278 - DEBUG - Modified Tags in summon command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["ok"]}
+2025-10-03 12:05:44,280 - DEBUG - Command copied to clipboard.
+2025-10-03 12:05:44,281 - DEBUG - Original Tag: pl
+2025-10-03 12:05:44,281 - DEBUG - New Tag: ok
+2025-10-03 12:05:44,281 - DEBUG - Modified Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["ok"]}
+2025-10-03 12:06:06,165 - DEBUG - Command copied to clipboard.
+2025-10-03 12:06:06,167 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:06:06,596 - WARNING - Invalid clipboard format for coordinates
+2025-10-03 12:06:09,408 - DEBUG - Command copied to clipboard.
+2025-10-03 12:06:09,409 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:06:10,877 - DEBUG - Command copied to clipboard.
+2025-10-03 12:06:19,774 - DEBUG - Autofilled integer coordinates: ['0', '0', '0']
+2025-10-03 12:06:19,774 - ERROR - Error autofilling integer coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 12:22:53,707 - DEBUG - Logging initialized
+2025-10-03 12:22:53,803 - INFO - F12 keyboard hook initialized
+2025-10-03 12:22:53,866 - DEBUG - Always on top set to: True
+2025-10-03 12:23:08,946 - DEBUG - Command copied to clipboard.
+2025-10-03 12:23:08,946 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:23:09,811 - DEBUG - Command copied to clipboard.
+2025-10-03 12:23:31,101 - DEBUG - Autofilled integer coordinates: ['1', '1', '1']
+2025-10-03 12:23:31,102 - ERROR - Error autofilling integer coordinates: 'CommandModifierGUI' object has no attribute 'print_to_text'
+2025-10-03 12:26:49,465 - DEBUG - Logging initialized
+2025-10-03 12:26:49,565 - INFO - F12 keyboard hook initialized
+2025-10-03 12:26:49,641 - DEBUG - Always on top set to: True
+2025-10-03 12:27:04,803 - DEBUG - Logging initialized
+2025-10-03 12:27:04,911 - INFO - F12 keyboard hook initialized
+2025-10-03 12:27:04,981 - DEBUG - Always on top set to: True
+2025-10-03 12:29:15,255 - DEBUG - Logging initialized
+2025-10-03 12:29:15,359 - INFO - F12 keyboard hook initialized
+2025-10-03 12:29:15,425 - DEBUG - Always on top set to: True
+2025-10-03 12:29:30,016 - DEBUG - Logging initialized
+2025-10-03 12:29:30,125 - INFO - F12 keyboard hook initialized
+2025-10-03 12:29:30,192 - DEBUG - Always on top set to: True
+2025-10-03 12:29:41,673 - DEBUG - Command copied to clipboard.
+2025-10-03 12:29:41,673 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:29:42,226 - WARNING - Invalid clipboard format for coordinates
+2025-10-03 12:29:53,385 - DEBUG - Generated Command: /setblock 0.000000 0.500000 -0.000001 minecraft:red_concrete
+2025-10-03 12:30:05,210 - DEBUG - Command copied to clipboard.
+2025-10-03 12:30:05,211 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:30:06,717 - DEBUG - Command copied to clipboard.
+2025-10-03 12:30:09,219 - DEBUG - Generated Command: /setblock 0.000000 0.500000 -0.000001 minecraft:red_concrete
+2025-10-03 12:30:40,938 - DEBUG - Command copied to clipboard.
+2025-10-03 12:33:17,264 - DEBUG - Logging initialized
+2025-10-03 12:33:17,363 - INFO - F12 keyboard hook initialized
+2025-10-03 12:33:17,424 - DEBUG - Always on top set to: True
+2025-10-03 12:33:22,090 - DEBUG - Command copied to clipboard.
+2025-10-03 12:33:22,091 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-03 12:33:22,917 - DEBUG - Command copied to clipboard.
+2025-10-03 12:33:30,250 - DEBUG - Generated /setblock command: /setblock 0.000000 0.500000 -0.000001 minecraft:red_concrete
+2025-10-03 12:33:30,252 - DEBUG - Command copied to clipboard: /setblock 0.000000 0.500000 -0.000001 minecraft:red_concrete
+2025-10-03 12:33:52,665 - DEBUG - Logging initialized
+2025-10-03 12:33:52,773 - INFO - F12 keyboard hook initialized
+2025-10-03 12:33:52,842 - DEBUG - Always on top set to: True
+2025-10-12 19:29:58,850 - DEBUG - Logging initialized
+2025-10-12 19:29:58,957 - INFO - F12 keyboard hook initialized
+2025-10-12 19:29:59,042 - DEBUG - Always on top set to: True
+2025-10-12 19:30:25,746 - DEBUG - Command copied to clipboard.
+2025-10-12 19:30:25,746 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 19:30:26,846 - DEBUG - Command copied to clipboard.
+2025-10-12 19:30:42,052 - DEBUG - Command copied to clipboard.
+2025-10-12 19:30:49,574 - DEBUG - Kill command copied to clipboard.
+2025-10-12 19:30:49,575 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-12 19:30:50,385 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:01,551 - DEBUG - Autofilled coordinates from clipboard: -2.0, 101.0, 4.0
+2025-10-12 19:31:04,848 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:04,848 - DEBUG - Generated Laser Command: /summon minecraft:block_display -2.000000 101.500000 3.999999 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 19:31:05,601 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:18,447 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:18,447 - DEBUG - Generated Laser Command: /summon minecraft:block_display -2.000000 101.500000 3.999999 {block_state:{Name:"minecraft:red_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 19:31:19,161 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:30,175 - DEBUG - Kill command copied to clipboard.
+2025-10-12 19:31:30,176 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-12 19:31:31,043 - DEBUG - Command copied to clipboard.
+2025-10-12 19:31:46,242 - DEBUG - Command copied to clipboard.
+2025-10-12 19:32:14,348 - DEBUG - Command copied to clipboard.
+2025-10-12 19:38:29,562 - DEBUG - Command copied to clipboard.
+2025-10-12 19:41:25,536 - DEBUG - Logging initialized
+2025-10-12 19:41:25,641 - INFO - F12 keyboard hook initialized
+2025-10-12 19:45:35,341 - DEBUG - Logging initialized
+2025-10-12 19:45:35,439 - INFO - F12 keyboard hook initialized
+2025-10-12 19:45:35,528 - DEBUG - Always on top set to: True
+2025-10-12 19:45:47,102 - DEBUG - Command copied to clipboard.
+2025-10-12 19:45:47,102 - DEBUG - Generated End Beam Command: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-12 19:45:54,439 - DEBUG - Autofilled origin coordinates from clipboard: -2.0, 100.0, 2.0
+2025-10-12 19:46:07,729 - DEBUG - Autofilled origin coordinates from clipboard: 2.0, 142.0, 50.0
+2025-10-12 19:46:15,827 - DEBUG - Autofilled target coordinates from clipboard: -2.0, 100.0, 2.0
+2025-10-12 19:46:16,904 - DEBUG - Command copied to clipboard.
+2025-10-12 19:46:16,905 - DEBUG - Generated End Beam Command: summon end_crystal 2.000000 142.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-2,Y:100,Z:2}}
+2025-10-12 19:46:17,745 - DEBUG - Command copied to clipboard.
+2025-10-12 19:46:28,973 - DEBUG - Kill command copied to clipboard.
+2025-10-12 19:46:28,973 - DEBUG - Generated Kill End Beam Command: /kill @e[tag=laser]
+2025-10-12 19:46:30,659 - DEBUG - Command copied to clipboard.
+2025-10-12 19:50:22,890 - DEBUG - Logging initialized
+2025-10-12 19:50:22,983 - INFO - F12 keyboard hook initialized
+2025-10-12 19:50:23,056 - DEBUG - Always on top set to: True
+2025-10-12 19:50:47,510 - DEBUG - Command copied to clipboard.
+2025-10-12 19:50:47,511 - DEBUG - Generated End Beam Command: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-12 19:50:48,525 - DEBUG - Command copied to clipboard.
+2025-10-12 19:51:08,275 - DEBUG - Autofilled origin coordinates from clipboard: 2.0, 144.0, 50.0
+2025-10-12 19:51:25,032 - DEBUG - Autofilled target coordinates from clipboard: -3.0, 100.0, 6.0
+2025-10-12 19:51:27,258 - DEBUG - Command copied to clipboard.
+2025-10-12 19:51:27,259 - DEBUG - Generated End Beam Command: summon end_crystal 2.000000 144.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-3,Y:100,Z:6}}
+2025-10-12 19:51:32,244 - DEBUG - Kill command copied to clipboard.
+2025-10-12 19:51:32,244 - DEBUG - Generated Kill End Beam Command: /kill @e[tag=laser]
+2025-10-12 19:51:33,174 - DEBUG - Command copied to clipboard.
+2025-10-12 20:05:45,622 - DEBUG - Command copied to clipboard.
+2025-10-12 20:05:45,623 - DEBUG - Generated End Beam Command: summon end_crystal 2.000000 144.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-3,Y:100,Z:6}}
+2025-10-12 20:05:46,215 - DEBUG - Command copied to clipboard.
+2025-10-12 20:05:48,767 - DEBUG - Processing clipboard for tab: rename tag/group
+2025-10-12 20:05:48,768 - DEBUG - Processing command in Rename Tag/Group tab: summon end_crystal 2.000000 144.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:-3,Y:100,Z:6}}
+2025-10-12 20:05:48,769 - DEBUG - Modified Tags in summon command: /summon end_crystal 2.000000 144.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["beam1"],BeamTarget:{X:-3,Y:100,Z:6}}
+2025-10-12 20:05:48,772 - DEBUG - Command copied to clipboard.
+2025-10-12 20:05:48,772 - DEBUG - Original Tag: laser
+2025-10-12 20:05:48,773 - DEBUG - New Tag: beam1
+2025-10-12 20:05:48,773 - DEBUG - Modified Command: /summon end_crystal 2.000000 144.000000 50.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["beam1"],BeamTarget:{X:-3,Y:100,Z:6}}
+2025-10-12 20:06:15,376 - DEBUG - Command copied to clipboard.
+2025-10-12 20:06:15,377 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:06:17,024 - DEBUG - Command copied to clipboard.
+2025-10-12 20:06:23,178 - DEBUG - Generated Command: /setblock 0.000000 0.500000 -0.000001 minecraft:lime_concrete
+2025-10-12 20:06:27,621 - DEBUG - Failed to parse coordinates from content: /setblock 0.000000 0.500000 -0.000001 minecraft:lime_concrete
+2025-10-12 20:06:27,622 - WARNING - No valid coordinates found in clipboard
+2025-10-12 20:06:50,949 - DEBUG - Logging initialized
+2025-10-12 20:06:51,050 - INFO - F12 keyboard hook initialized
+2025-10-12 20:06:51,133 - DEBUG - Always on top set to: True
+2025-10-12 20:44:24,255 - DEBUG - Command copied to clipboard.
+2025-10-12 20:44:24,255 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:44:25,685 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:01,384 - DEBUG - Logging initialized
+2025-10-12 20:52:01,478 - INFO - F12 keyboard hook initialized
+2025-10-12 20:52:01,563 - DEBUG - Always on top set to: True
+2025-10-12 20:52:08,447 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:08,448 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:52:09,311 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:16,827 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:16,827 - DEBUG - Generated Block Display Command: /summon minecraft:block_display 0.000000 0.000000 0.000000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:52:18,408 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:18,408 - DEBUG - Generated Setblock Command: /setblock 0.000000 0.000000 0.000000 minecraft:lime_concrete
+2025-10-12 20:52:21,041 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:21,041 - DEBUG - Generated Block Display Command: /summon minecraft:block_display 0.000000 0.000000 0.000000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:52:22,485 - DEBUG - Command copied to clipboard.
+2025-10-12 20:52:22,485 - DEBUG - Generated Setblock Command: /setblock 0.000000 0.000000 0.000000 minecraft:lime_concrete
+2025-10-12 20:54:54,773 - DEBUG - Logging initialized
+2025-10-12 20:54:54,861 - INFO - F12 keyboard hook initialized
+2025-10-12 20:54:54,938 - DEBUG - Always on top set to: True
+2025-10-12 20:55:00,682 - DEBUG - Command copied to clipboard.
+2025-10-12 20:55:00,683 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:55:01,415 - DEBUG - Command copied to clipboard.
+2025-10-12 20:55:04,982 - DEBUG - Modified block display command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:55:04,986 - DEBUG - Modified command copied to clipboard.
+2025-10-12 20:55:15,561 - DEBUG - Modified block display command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:red_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-12 20:55:15,566 - DEBUG - Modified command copied to clipboard.
+2025-10-12 20:55:37,208 - DEBUG - Modified setblock command: /setblock 0 0 0 minecraft:red_concrete
+2025-10-12 20:55:37,212 - DEBUG - Modified command copied to clipboard.
+2025-10-13 19:46:37,032 - DEBUG - Logging initialized
+2025-10-13 19:46:37,125 - INFO - F12 keyboard hook initialized
+2025-10-13 19:46:37,210 - DEBUG - Always on top set to: True
+2025-10-13 20:14:23,679 - DEBUG - Command copied to clipboard.
+2025-10-13 20:14:23,680 - DEBUG - Generated Laser Command: /summon minecraft:block_display 0.000000 0.500000 -0.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 20:14:43,973 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 20:14:45,831 - DEBUG - Command copied to clipboard.
+2025-10-13 20:14:45,832 - DEBUG - Generated Laser Command: /summon minecraft:block_display -3.000000 101.500000 5.999999 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 20:14:49,840 - DEBUG - Command copied to clipboard.
+2025-10-13 20:18:56,594 - DEBUG - Command copied to clipboard.
+2025-10-13 20:21:46,249 - DEBUG - Kill command copied to clipboard.
+2025-10-13 20:21:46,250 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-13 21:00:49,048 - DEBUG - Logging initialized
+2025-10-13 21:00:49,145 - INFO - F12 keyboard hook initialized
+2025-10-13 21:00:49,217 - DEBUG - Always on top set to: True
+2025-10-13 21:00:57,400 - DEBUG - Command copied to clipboard.
+2025-10-13 21:00:57,400 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display 0.000000 0.420000 0.420000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scalef:[150.000000f,0.1f,0.1f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:01:18,181 - DEBUG - Autofilled coordinates from clipboard: -11.0, 103.0, -14.0
+2025-10-13 21:01:19,682 - DEBUG - Command copied to clipboard.
+2025-10-13 21:01:19,683 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -11.000000 103.420000 -13.580000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scalef:[150.000000f,0.1f,0.1f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:01:20,848 - DEBUG - Command copied to clipboard.
+2025-10-13 21:07:59,743 - DEBUG - Autofilled coordinates from clipboard: -11.0, 103.0, -14.0
+2025-10-13 21:08:00,991 - DEBUG - Command copied to clipboard.
+2025-10-13 21:08:00,991 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -11.000000 103.420000 -13.580000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scalef:[150.000000f,0.1f,0.1f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:08:01,694 - DEBUG - Command copied to clipboard.
+2025-10-13 21:08:29,266 - DEBUG - Command copied to clipboard.
+2025-10-13 21:08:57,372 - DEBUG - Command copied to clipboard.
+2025-10-13 21:09:23,127 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:09:24,095 - DEBUG - Command copied to clipboard.
+2025-10-13 21:09:24,095 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.000000 101.420000 6.420000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scalef:[150.000000f,0.1f,0.1f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:09:24,841 - DEBUG - Command copied to clipboard.
+2025-10-13 21:12:04,374 - DEBUG - Logging initialized
+2025-10-13 21:12:04,463 - INFO - F12 keyboard hook initialized
+2025-10-13 21:12:04,532 - DEBUG - Always on top set to: True
+2025-10-13 21:12:37,892 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:12:40,368 - DEBUG - Command copied to clipboard.
+2025-10-13 21:12:40,368 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:12:41,219 - DEBUG - Command copied to clipboard.
+2025-10-13 21:12:43,947 - DEBUG - Command copied to clipboard.
+2025-10-13 21:13:01,338 - DEBUG - Command copied to clipboard.
+2025-10-13 21:13:01,338 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:13:03,240 - DEBUG - Command copied to clipboard.
+2025-10-13 21:13:03,241 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:13:07,156 - DEBUG - Command copied to clipboard.
+2025-10-13 21:13:07,156 - DEBUG - Generated Laser Command (North): /summon minecraft:block_display -3.020000 101.420000 7.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:13:12,027 - DEBUG - Command copied to clipboard.
+2025-10-13 21:13:12,028 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0.0f],scale:[0.1f,0.1f,-150.000000f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:13:12,892 - DEBUG - Command copied to clipboard.
+2025-10-13 21:27:48,235 - DEBUG - Logging initialized
+2025-10-13 21:27:48,334 - INFO - F12 keyboard hook initialized
+2025-10-13 21:27:48,408 - DEBUG - Always on top set to: True
+2025-10-13 21:28:08,918 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:28:10,144 - DEBUG - Command copied to clipboard.
+2025-10-13 21:28:10,145 - DEBUG - Generated Laser Command (North): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0f,0f],scale:[0.1f,0.1f,-150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:28:10,885 - DEBUG - Command copied to clipboard.
+2025-10-13 21:29:31,263 - DEBUG - Command copied to clipboard.
+2025-10-13 21:29:31,264 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -3.020000 101.420000 7.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0f,0f],scale:[0.1f,0.1f,150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:29:31,909 - DEBUG - Command copied to clipboard.
+2025-10-13 21:39:53,761 - DEBUG - Logging initialized
+2025-10-13 21:39:53,848 - INFO - F12 keyboard hook initialized
+2025-10-13 21:39:53,915 - DEBUG - Always on top set to: True
+2025-10-13 21:40:08,802 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:40:09,935 - DEBUG - Generated Laser Command (North): /summon minecraft:block_display -3.080000 101.420000 5.990000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5,0.0,0.0],scale:[0.1,0.1,-150.0],left_rotation:[0.0,0.0,0.0,1.0],right_rotation:[0.0,0.0,0.0,1.0]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:40:10,978 - DEBUG - Command copied to clipboard.
+2025-10-13 21:40:25,636 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -3.020000 101.420000 7.000001 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5,0.0,0.0],scale:[0.1,0.1,150.0],left_rotation:[0.0,0.0,0.0,1.0],right_rotation:[0.0,0.0,0.0,1.0]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:40:26,590 - DEBUG - Command copied to clipboard.
+2025-10-13 21:40:34,974 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.000000 101.420000 6.420000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5,0.0,0.0],scale:[150.0,0.1,0.1],left_rotation:[0.0,0.0,0.0,1.0],right_rotation:[0.0,0.0,0.0,1.0]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:40:35,875 - DEBUG - Command copied to clipboard.
+2025-10-13 21:40:45,469 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -4.000000 101.420000 6.480000 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5,0.0,0.0],scale:[-150.0,0.1,0.1],left_rotation:[0.0,0.0,0.0,1.0],right_rotation:[0.0,0.0,0.0,1.0]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:40:46,226 - DEBUG - Command copied to clipboard.
+2025-10-13 21:41:22,220 - DEBUG - Command copied to clipboard.
+2025-10-13 21:42:07,262 - DEBUG - Logging initialized
+2025-10-13 21:42:07,348 - INFO - F12 keyboard hook initialized
+2025-10-13 21:42:07,425 - DEBUG - Always on top set to: True
+2025-10-13 21:42:24,199 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:42:25,329 - DEBUG - Generated Laser Command (North): /summon minecraft:block_display -3.08 101.42 5.99 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[0.1f,0.1f,-150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:42:25,904 - DEBUG - Command copied to clipboard.
+2025-10-13 21:42:32,500 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -3.02 101.42 7.00 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[0.1f,0.1f,150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:42:33,058 - DEBUG - Command copied to clipboard.
+2025-10-13 21:42:42,126 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display -3.00 101.42 6.42 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:42:42,673 - DEBUG - Command copied to clipboard.
+2025-10-13 21:42:56,678 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -4.00 101.42 6.48 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[-150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:42:57,317 - DEBUG - Command copied to clipboard.
+2025-10-13 21:43:01,931 - DEBUG - Kill command copied to clipboard.
+2025-10-13 21:43:01,932 - DEBUG - Generated Kill Command: /kill @e[tag=beam1]
+2025-10-13 21:43:03,264 - DEBUG - Command copied to clipboard.
+2025-10-13 21:43:24,625 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -4.00 101.42 6.48 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[-150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:43:25,474 - DEBUG - Command copied to clipboard.
+2025-10-13 21:47:31,759 - DEBUG - Logging initialized
+2025-10-13 21:47:31,849 - INFO - F12 keyboard hook initialized
+2025-10-13 21:47:31,925 - DEBUG - Always on top set to: True
+2025-10-13 21:47:43,577 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -1 0.42 0.48 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[-150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:47:44,390 - DEBUG - Command copied to clipboard.
+2025-10-13 21:47:53,537 - DEBUG - Command copied to clipboard.
+2025-10-13 21:48:03,983 - DEBUG - Autofilled coordinates from clipboard: -3.0, 101.0, 6.0
+2025-10-13 21:48:05,778 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -4 101.42 6.48 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[-150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-13 21:48:06,344 - DEBUG - Command copied to clipboard.
+2025-10-25 13:34:41,385 - DEBUG - Logging initialized
+2025-10-25 13:34:44,844 - INFO - F12 keyboard hook initialized
+2025-10-25 13:34:45,184 - DEBUG - Always on top set to: True
+2025-10-25 13:42:11,422 - DEBUG - Generated Laser Command (North): /summon minecraft:block_display -0.08 0.42 -0.01 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[0.1f,0.1f,-150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-25 13:44:05,326 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -0.02 0.42 1 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[0.1f,0.1f,150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-25 13:44:06,064 - WARNING - Invalid clipboard format for coordinates
+2025-10-25 13:44:08,089 - DEBUG - Generated Laser Command (South): /summon minecraft:block_display -0.02 0.42 1 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[0.1f,0.1f,150f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-25 13:44:09,051 - DEBUG - Command copied to clipboard.
+2025-10-25 13:44:16,734 - DEBUG - Generated Laser Command (East): /summon minecraft:block_display 0 0.42 0.42 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-25 13:44:17,486 - DEBUG - Command copied to clipboard.
+2025-10-25 13:44:31,984 - DEBUG - Generated Laser Command (West): /summon minecraft:block_display -1 0.42 0.48 {block_state:{Name:"minecraft:lime_concrete"},transformation:{translation:[0.5f,0.0f,0f],scale:[-150f,0.1f,0.1f],left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f]},brightness:15728880,shadow:false,billboard:"fixed",Tags:["beam1"]}
+2025-10-25 13:44:32,710 - DEBUG - Command copied to clipboard.
+2025-10-25 13:45:22,573 - DEBUG - Command copied to clipboard.
+2025-10-25 13:45:22,573 - DEBUG - Generated End Beam Command: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
+2025-10-25 13:45:23,279 - DEBUG - Command copied to clipboard.
