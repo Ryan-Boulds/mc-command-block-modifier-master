@@ -1,0 +1,10 @@
+2025-10-25 14:16:04,764 - DEBUG - Starting Tkinter root
+2025-10-25 14:16:04,868 - DEBUG - Initializing CommandModifierGUI
+2025-10-25 14:16:04,869 - DEBUG - Creating notebook
+2025-10-25 14:16:04,879 - DEBUG - Creating modify properties GUI
+2025-10-25 14:16:04,891 - DEBUG - Starting Tkinter mainloop
+2025-10-25 14:17:22,909 - DEBUG - Starting Tkinter root
+2025-10-25 14:17:23,009 - DEBUG - Initializing CommandModifierGUI
+2025-10-25 14:17:23,009 - DEBUG - Creating notebook
+2025-10-25 14:17:23,020 - DEBUG - Creating modify properties GUI
+2025-10-25 14:17:23,047 - DEBUG - Starting Tkinter mainloop

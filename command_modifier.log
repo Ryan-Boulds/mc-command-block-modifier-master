@@ -1050,3 +1050,330 @@ def process_command(gui, command):
 2025-10-25 13:45:22,573 - DEBUG - Command copied to clipboard.
 2025-10-25 13:45:22,573 - DEBUG - Generated End Beam Command: summon end_crystal 0.000000 0.000000 0.000000 {ShowBottom:0b,Invulnerable:1b,Tags:["laser"],BeamTarget:{X:0,Y:0,Z:0}}
 2025-10-25 13:45:23,279 - DEBUG - Command copied to clipboard.
+2025-10-25 13:59:37,159 - DEBUG - Logging initialized
+2025-10-25 13:59:37,254 - INFO - F12 keyboard hook initialized
+2025-10-25 13:59:37,337 - DEBUG - Always on top set to: True
+2025-10-25 14:27:03,493 - DEBUG - Logging initialized
+2025-10-25 14:27:03,597 - INFO - F12 keyboard hook initialized
+2025-10-25 14:27:03,688 - DEBUG - Always on top set to: True
+2025-10-25 16:23:43,116 - DEBUG - Logging initialized
+2025-10-25 16:23:43,200 - INFO - F12 keyboard hook initialized
+2025-10-25 16:23:43,270 - DEBUG - Always on top set to: True
+2025-10-25 16:24:13,724 - DEBUG - Logging initialized
+2025-10-25 16:24:13,837 - INFO - F12 keyboard hook initialized
+2025-10-25 16:24:13,960 - DEBUG - Always on top set to: True
+2025-10-25 16:26:39,508 - DEBUG - Logging initialized
+2025-10-25 16:26:39,596 - INFO - F12 keyboard hook initialized
+2025-10-25 16:26:39,667 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:39,668 - DEBUG - Always on top set to: True
+2025-10-25 16:26:42,229 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:42,231 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:43,110 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:43,113 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:44,351 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:44,353 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:46,021 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:46,023 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:51,302 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:51,304 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:52,588 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:52,591 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:57,285 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:57,287 - DEBUG - Updated UI: command_type=end beam, is_laser=False
+2025-10-25 16:26:58,102 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:26:58,104 - DEBUG - Updated UI: command_type=laser, is_laser=True
+2025-10-25 16:28:24,511 - DEBUG - Logging initialized
+2025-10-25 16:28:24,625 - INFO - F12 keyboard hook initialized
+2025-10-25 16:28:24,709 - DEBUG - Stored config for widget Label at row 2: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 2, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,709 - DEBUG - Stored config for widget Checkbutton at row 2: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 2, 'row': 2, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,710 - DEBUG - Stored config for widget Entry at row 2: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 2, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,710 - DEBUG - Stored config for widget Label at row 8: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 8, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 5, 'sticky': 'w'}
+2025-10-25 16:28:24,711 - DEBUG - Stored config for widget Checkbutton at row 8: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 2, 'row': 8, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 5, 'sticky': 'w'}
+2025-10-25 16:28:24,711 - DEBUG - Stored config for widget Label at row 9: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 9, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,712 - DEBUG - Stored config for widget Entry at row 9: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 9, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,712 - DEBUG - Stored config for widget Label at row 10: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 10, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,713 - DEBUG - Stored config for widget Entry at row 10: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 10, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,713 - DEBUG - Stored config for widget Label at row 11: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 11, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,714 - DEBUG - Stored config for widget Entry at row 11: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 11, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,714 - DEBUG - Stored config for widget Label at row 12: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 12, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 5, 'sticky': 'w'}
+2025-10-25 16:28:24,715 - DEBUG - Stored config for widget Checkbutton at row 12: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 2, 'row': 12, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 5, 'sticky': 'w'}
+2025-10-25 16:28:24,715 - DEBUG - Stored config for widget Label at row 13: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 13, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,716 - DEBUG - Stored config for widget Entry at row 13: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 13, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,716 - DEBUG - Stored config for widget Label at row 14: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 14, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,717 - DEBUG - Stored config for widget Entry at row 14: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 14, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,717 - DEBUG - Stored config for widget Label at row 15: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 0, 'row': 15, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,718 - DEBUG - Stored config for widget Entry at row 15: {'in': <tkinter.ttk.Frame object .!notebook.!frame9.!canvas.!frame>, 'column': 1, 'row': 15, 'columnspan': 1, 'rowspan': 1, 'ipadx': 0, 'ipady': 0, 'padx': 0, 'pady': 2, 'sticky': 'w'}
+2025-10-25 16:28:24,718 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:24,718 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:24,719 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:24,719 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:24,720 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:24,720 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:24,721 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:24,721 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:24,721 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:24,722 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:24,722 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:24,722 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:24,723 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:24,723 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:24,723 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:24,724 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:24,724 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:24,725 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:24,725 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:24,725 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:25,000 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:25,003 - DEBUG - Always on top set to: True
+2025-10-25 16:28:27,658 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:27,660 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:27,661 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:27,661 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:27,662 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:27,663 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:27,664 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:27,665 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:27,667 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:27,668 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:27,669 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:27,670 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:27,670 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:27,671 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:27,671 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:27,672 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:27,672 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:27,673 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:27,673 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:27,674 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:27,714 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:27,717 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:27,717 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:27,718 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:27,718 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:27,719 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:27,719 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:27,719 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:27,720 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:27,720 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:27,721 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:27,721 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:27,721 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:27,722 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:27,722 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:27,722 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:27,723 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:27,723 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:27,724 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:27,724 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:27,724 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:27,727 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:28,791 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:28,792 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:28,792 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:28,793 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:28,793 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:28,794 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:28,794 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:28,794 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:28,795 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:28,795 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:28,795 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:28,796 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:28,797 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:28,798 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:28,800 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:28,801 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:28,802 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:28,803 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:28,804 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:28,805 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:28,841 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:28,843 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:28,844 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:28,844 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:28,845 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:28,845 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:28,846 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:28,846 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:28,846 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:28,847 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:28,847 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:28,847 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:28,848 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:28,848 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:28,849 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:28,849 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:28,849 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:28,850 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:28,850 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:28,850 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:28,851 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:28,853 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:29,790 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:29,791 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:29,793 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:29,794 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:29,796 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:29,797 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:29,798 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:29,799 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:29,800 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:29,802 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:29,803 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:29,804 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:29,805 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:29,805 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:29,806 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:29,806 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:29,806 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:29,807 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:29,807 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:29,808 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:29,837 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:29,840 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:29,840 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:29,841 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:29,841 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:29,842 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:29,842 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:29,843 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:29,843 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:29,843 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:29,844 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:29,844 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:29,844 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:29,845 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:29,845 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:29,846 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:29,846 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:29,847 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:29,847 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:29,847 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:29,848 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:29,851 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:31,261 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:31,261 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:31,262 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:31,262 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:31,263 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:31,263 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:31,263 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:31,264 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:31,264 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:31,264 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:31,264 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:31,265 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:31,265 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:31,267 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:31,268 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:31,269 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:31,269 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:31,270 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:31,271 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:31,272 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:31,298 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:31,301 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:31,301 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:31,302 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:31,302 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:31,303 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:31,303 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:31,303 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:31,303 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:31,304 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:31,304 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:31,305 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:31,305 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:31,306 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:31,306 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:31,306 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:31,307 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:31,307 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:31,307 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:31,308 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:31,308 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:31,310 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:32,542 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:32,544 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:32,546 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:32,547 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:32,548 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:32,549 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:32,550 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:32,551 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:32,552 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:32,553 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:32,554 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:32,555 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:32,556 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:32,557 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:32,557 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:32,557 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:32,558 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:32,558 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:32,559 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:32,559 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:32,584 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:32,587 - DEBUG - Starting UI update: command_type=end beam, is_laser=False
+2025-10-25 16:28:32,587 - DEBUG - Removed widget Label at row 2
+2025-10-25 16:28:32,588 - DEBUG - Removed widget Checkbutton at row 2
+2025-10-25 16:28:32,588 - DEBUG - Removed widget Entry at row 2
+2025-10-25 16:28:32,588 - DEBUG - Removed widget Label at row 8
+2025-10-25 16:28:32,589 - DEBUG - Removed widget Checkbutton at row 8
+2025-10-25 16:28:32,589 - DEBUG - Removed widget Label at row 9
+2025-10-25 16:28:32,589 - DEBUG - Removed widget Entry at row 9
+2025-10-25 16:28:32,590 - DEBUG - Removed widget Label at row 10
+2025-10-25 16:28:32,590 - DEBUG - Removed widget Entry at row 10
+2025-10-25 16:28:32,591 - DEBUG - Removed widget Label at row 11
+2025-10-25 16:28:32,591 - DEBUG - Removed widget Entry at row 11
+2025-10-25 16:28:32,591 - DEBUG - Gridded widget Label at row 12
+2025-10-25 16:28:32,591 - DEBUG - Gridded widget Checkbutton at row 12
+2025-10-25 16:28:32,592 - DEBUG - Gridded widget Label at row 13
+2025-10-25 16:28:32,592 - DEBUG - Gridded widget Entry at row 13
+2025-10-25 16:28:32,592 - DEBUG - Gridded widget Label at row 14
+2025-10-25 16:28:32,593 - DEBUG - Gridded widget Entry at row 14
+2025-10-25 16:28:32,593 - DEBUG - Gridded widget Label at row 15
+2025-10-25 16:28:32,593 - DEBUG - Gridded widget Entry at row 15
+2025-10-25 16:28:32,596 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:33,971 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:33,972 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:33,972 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:33,972 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:33,973 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:33,973 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:33,973 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:33,974 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:33,974 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:33,974 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:33,975 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:33,975 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:33,976 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:33,976 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:33,977 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:33,979 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:33,979 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:33,981 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:33,982 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:33,983 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:34,010 - DEBUG - Canvas updated after UI change
+2025-10-25 16:28:34,013 - DEBUG - Starting UI update: command_type=laser, is_laser=True
+2025-10-25 16:28:34,014 - DEBUG - Gridded widget Label at row 2
+2025-10-25 16:28:34,014 - DEBUG - Gridded widget Checkbutton at row 2
+2025-10-25 16:28:34,014 - DEBUG - Gridded widget Entry at row 2
+2025-10-25 16:28:34,015 - DEBUG - Gridded widget Label at row 8
+2025-10-25 16:28:34,015 - DEBUG - Gridded widget Checkbutton at row 8
+2025-10-25 16:28:34,015 - DEBUG - Gridded widget Label at row 9
+2025-10-25 16:28:34,016 - DEBUG - Gridded widget Entry at row 9
+2025-10-25 16:28:34,016 - DEBUG - Gridded widget Label at row 10
+2025-10-25 16:28:34,016 - DEBUG - Gridded widget Entry at row 10
+2025-10-25 16:28:34,017 - DEBUG - Gridded widget Label at row 11
+2025-10-25 16:28:34,017 - DEBUG - Gridded widget Entry at row 11
+2025-10-25 16:28:34,018 - DEBUG - Removed widget Label at row 12
+2025-10-25 16:28:34,018 - DEBUG - Removed widget Checkbutton at row 12
+2025-10-25 16:28:34,018 - DEBUG - Removed widget Label at row 13
+2025-10-25 16:28:34,019 - DEBUG - Removed widget Entry at row 13
+2025-10-25 16:28:34,019 - DEBUG - Removed widget Label at row 14
+2025-10-25 16:28:34,019 - DEBUG - Removed widget Entry at row 14
+2025-10-25 16:28:34,019 - DEBUG - Removed widget Label at row 15
+2025-10-25 16:28:34,020 - DEBUG - Removed widget Entry at row 15
+2025-10-25 16:28:34,022 - DEBUG - Canvas updated after UI change

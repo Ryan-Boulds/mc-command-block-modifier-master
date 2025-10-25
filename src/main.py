@@ -11,6 +11,7 @@ from generate_end_beam_tab.generate_end_beam_gui import create_generate_end_beam
 from rename_tag_group_tab.rename_tag_group_gui import create_rename_tag_group_gui
 from settings_tab.settings_gui import create_settings_gui
 from worldedit_tab.worldedit_gui import create_worldedit_schematic_gui
+from modify_properties_tab.modify_properties_gui import create_modify_properties_gui  # New import
 from clipboard_parser.ClipboardParser import ClipboardCoordinateParser
 from command_processor import CommandProcessor
 from settings import load_settings, save_settings
@@ -26,6 +27,7 @@ from utils import (
 from generate_end_beam_tab.modifier import generate_end_beam_commands, generate_kill_end_beam_command
 from generate_laser_tab.modifier import generate_laser_commands, generate_kill_laser_command, parse_clipboard_coordinates
 from change_block_tab.modifier import modify_clipboard_command, generate_kill_block_display_command
+from modify_properties_tab.modifier import modify_properties_command, generate_kill_block_display_command as generate_kill_properties_command  # New import
 
 class CommandModifierGUI:
     def __init__(self, root):
@@ -76,7 +78,7 @@ class CommandModifierGUI:
         self.end_beam_target_y = tk.StringVar(value="0")
         self.end_beam_target_z = tk.StringVar(value="0")
         self.end_beam_tag = tk.StringVar(value="laser")
-        self.change_block_tag = tk.StringVar(value="beam1")  # Added for Change Block tab
+        self.change_block_tag = tk.StringVar(value="beam1")
         self.modify_coords = tk.BooleanVar(value=True)
         self.modify_translation = tk.BooleanVar(value=True)
         self.modify_scale = tk.BooleanVar(value=True)
@@ -90,6 +92,15 @@ class CommandModifierGUI:
         self.schematic_y = tk.StringVar(value="0")
         self.schematic_z = tk.StringVar(value="0")
         self.schematic_command = tk.StringVar(value="say Hello from command block")
+        # New variables for Modify Properties tab
+        self.command_type = tk.StringVar(value="laser")
+        self.modify_block = tk.BooleanVar(value=True)
+        self.modify_tag = tk.BooleanVar(value=True)
+        self.modify_target_coords = tk.BooleanVar(value=True)
+        self.scale_x = tk.StringVar(value="0.1")
+        self.scale_y = tk.StringVar(value="0.1")
+        self.scale_z = tk.StringVar(value="-150.0")
+        self.modify_properties_cmd_text = None  # Will be initialized in create_modify_properties_gui
 
         # Create notebook for tabs
         self.notebook = ttk.Notebook(self.root)
@@ -104,6 +115,7 @@ class CommandModifierGUI:
         self.rename_tag_group_frame = ttk.Frame(self.notebook)
         self.settings_frame = ttk.Frame(self.notebook)
         self.worldedit_frame = ttk.Frame(self.notebook)
+        self.modify_properties_frame = ttk.Frame(self.notebook)  # New frame for Modify Properties
 
         # Add tabs to notebook
         self.notebook.add(self.modify_laser_frame, text="Modify Laser")
@@ -114,6 +126,7 @@ class CommandModifierGUI:
         self.notebook.add(self.rename_tag_group_frame, text="Rename Tag/Group")
         self.notebook.add(self.settings_frame, text="Settings")
         self.notebook.add(self.worldedit_frame, text="WorldEdit Schematic")
+        self.notebook.add(self.modify_properties_frame, text="Modify Properties")  # New tab
 
         # Initialize tab GUIs
         create_modify_laser_gui(self.modify_laser_frame, self)
@@ -124,6 +137,7 @@ class CommandModifierGUI:
         create_rename_tag_group_gui(self.rename_tag_group_frame, self)
         create_settings_gui(self.settings_frame, self)
         create_worldedit_schematic_gui(self.worldedit_frame, self)
+        create_modify_properties_gui(self.modify_properties_frame, self)  # Initialize new tab GUI
 
         # Configure grid weights
         self.root.columnconfigure(0, weight=1)
@@ -151,7 +165,52 @@ class CommandModifierGUI:
         copy_to_clipboard(self, text)
 
     def process_clipboard(self):
-        process_clipboard(self)
+        try:
+            active_tab = self.notebook.tab(self.notebook.select(), "text").lower()
+            logging.debug(f"Processing clipboard for tab: {active_tab}")
+            clipboard_content = pyperclip.paste().strip()
+
+            if active_tab == "generate laser":
+                try:
+                    coords = self.clipboard_parser.parse_coordinates(clipboard_content)
+                    if coords:
+                        self.laser_x.set(str(float(coords[0])))
+                        self.laser_y.set(str(float(coords[1])))
+                        self.laser_z.set(str(float(coords[2])))
+                        logging.debug(f"Autofilled laser coordinates: {coords}")
+                    else:
+                        logging.warning("No valid coordinates found in clipboard")
+                except Exception as e:
+                    logging.error(f"Error autofilling laser coordinates: {e}")
+            elif active_tab == "generate end beam":
+                try:
+                    coords = self.clipboard_parser.parse_coordinates(clipboard_content)
+                    if coords:
+                        self.end_beam_x.set(str(float(coords[0])))
+                        self.end_beam_y.set(str(float(coords[1])))
+                        self.end_beam_z.set(str(float(coords[2])))
+                        logging.debug(f"Autofilled end beam coordinates: {coords}")
+                    else:
+                        logging.warning("No valid coordinates found in clipboard")
+                except Exception as e:
+                    logging.error(f"Error autofilling end beam coordinates: {e}")
+            elif active_tab == "modify properties":
+                try:
+                    coords = self.clipboard_parser.parse_coordinates(clipboard_content)
+                    if coords:
+                        self.laser_x.set(str(float(coords[0])))
+                        self.laser_y.set(str(float(coords[1])))
+                        self.laser_z.set(str(float(coords[2])))
+                        logging.debug(f"Autofilled modify properties coordinates: {coords}")
+                    else:
+                        logging.warning("No valid coordinates found in clipboard")
+                except Exception as e:
+                    logging.error(f"Error autofilling modify properties coordinates: {e}")
+            else:
+                self.process_command(clipboard_content)
+
+        except Exception as e:
+            logging.error(f"Error processing clipboard: {e}")
 
     def generate_laser(self):
         from generate_laser_tab.modifier import generate_laser_commands
@@ -181,6 +240,14 @@ class CommandModifierGUI:
         from change_block_tab.modifier import generate_kill_block_display_command
         generate_kill_block_display_command(self)
 
+    def modify_properties_command(self):
+        from modify_properties_tab.modifier import modify_properties_command
+        return modify_properties_command(self)
+
+    def generate_kill_properties_command(self):
+        from modify_properties_tab.modifier import generate_kill_block_display_command
+        return generate_kill_block_display_command(self)
+
     def process_command(self, command):
         current_tab = self.notebook.tab(self.notebook.select(), "text")
 
@@ -205,6 +272,9 @@ class CommandModifierGUI:
         elif current_tab == "WorldEdit Schematic":
             from worldedit_tab.modifier import process_command
             process_command(self, command)
+        elif current_tab == "Modify Properties":
+            from modify_properties_tab.modifier import modify_properties_command
+            return modify_properties_command(self)
 
 if __name__ == "__main__":
     root = tk.Tk()
